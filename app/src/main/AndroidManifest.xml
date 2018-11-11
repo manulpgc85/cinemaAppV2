@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.manu.cinemaappv2">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_app"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PrincipalActivity"
+            android:label="@string/title_activity_principal"
+            android:parentActivityName=".WelcomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.manu.cinemaappv2.WelcomeActivity" />
+        </activity>
+        <activity
+            android:name=".ErrorActivity"
+            android:label="@string/error_title"
+            android:parentActivityName=".PrincipalActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.manu.cinemaappv2.PrincipalActivity" />
+        </activity>
+        <activity
+            android:name=".ppv.PpvActivity"
+            android:parentActivityName=".PrincipalActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.manu.cinemaappv2.PrincipalActivity" />
+        </activity>
+
+        <provider
+            android:name=".proveedor.ProveedorDeContenido"
+            android:authorities="com.example.manu.cinemaappv2.proveedor.ProveedorDeContenido"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".CrudActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity
+            android:name=".datesActivity"
+            android:label="@string/title_activity_date"
+            android:parentActivityName=".RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.manu.cinemaappv2.RegisterActivity" />
+        </activity>
+        <activity android:name=".ResultActivity" />
+        <activity
+            android:name=".MoredatesActivity"
+            android:label="@string/title_activity_moredates"
+            android:parentActivityName=".datesActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.manu.cinemaappv2.RegisterActivity" />
+        </activity>
+        <activity
+            android:name=".MoremoreDatesActivity"
+            android:label="@string/title_activity_moremore_dates"
+            android:parentActivityName=".MoredatesActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.manu.cinemaappv2.RegisterActivity" />
+        </activity>
+        <activity android:name=".ResultActivity2" />
+        <activity
+            android:name=".KindFilmsActivity"
+            android:label="@string/title_activity_kind_films"
+            android:parentActivityName=".RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.manu.cinemaappv2.RegisterActivity" />
+        </activity>
+        <activity android:name=".postRegister" />
+        <activity android:name=".FinishActivity" />
+        <activity android:name=".ppv.PpvInsertActivity"
+            android:parentActivityName=".ppv.PpvActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+                <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".ppv.PpvActivity"/>
+    </activity>
+
+        <activity android:name=".ppv.PpvModifyActivity"
+            android:parentActivityName=".ppv.PpvActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ppv.PpvActivity"/>
+        </activity>
+
+    </application>
+
+</manifest>

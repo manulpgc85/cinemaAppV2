@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/d_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Title" />
+
+    <EditText
+        android:id="@+id/d_director"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Director" />
+
+    <EditText
+        android:id="@+id/d_guionist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Guionist" />
+
+    <EditText
+        android:id="@+id/d_genre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Genre" />
+
+    <EditText
+        android:id="@+id/d_subgenre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Subgenre" />
+
+    <EditText
+        android:id="@+id/d_actor1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Actor 1" />
+
+    <EditText
+        android:id="@+id/d_actor2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Actor 2" />
+
+    <EditText
+        android:id="@+id/d_actor3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Actor 3" />
+
+    <EditText
+        android:id="@+id/d_actor4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Actor4" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"></LinearLayout>
+
+    <Button
+        android:id="@+id/d_addButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_add" />
+
+    <Button
+        android:id="@+id/d_cancelButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_cancel" />
+
+</LinearLayout>
