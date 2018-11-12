@@ -40,6 +40,7 @@ public class PpvListFragment extends ListFragment
     ActionMode mActionMode;
     View viewSelected;
     int ppvId;
+    Intent intent;
     public static PpvListFragment newInstance() {
         PpvListFragment f = new PpvListFragment();
 
@@ -143,10 +144,12 @@ public class PpvListFragment extends ListFragment
                     ppvId = (Integer) viewSelected.getTag();
                     PpvProveedor.deleteRecord(getActivity().getContentResolver(),ppvId);
                     mActionMode.finish();
+                    intent =new Intent(getActivity(), PpvActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.menu_edit:
                     ppvId = (Integer) viewSelected.getTag();
-                    Intent intent = new Intent(getActivity(),PpvModifyActivity.class);
+                    intent = new Intent(getActivity(),PpvModifyActivity.class);
                     intent.putExtra(Contrato.PPV._ID, ppvId);
                     startActivity(intent);
                     mActionMode.finish();

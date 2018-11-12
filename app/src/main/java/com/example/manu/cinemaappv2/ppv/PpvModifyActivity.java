@@ -1,5 +1,6 @@
 package com.example.manu.cinemaappv2.ppv;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -101,6 +102,9 @@ public class PpvModifyActivity extends AppCompatActivity {
 
         Ppv ppv = new Ppv(ppvId, Title, Director, Guionist, Integer.parseInt(Year));
         PpvProveedor.updateRecord(getContentResolver(),ppv);
-        finish();
+
+        Intent intent =new Intent(this, PpvActivity.class);
+        startActivity(intent);
+        //finish();
     }
 }
