@@ -92,7 +92,6 @@
                 android:value="com.example.manu.cinemaappv2.RegisterActivity" />
         </activity>
         <activity android:name=".postRegister" />
-        <activity android:name=".FinishActivity" />
         <activity android:name=".ppv.PpvInsertActivity"
             android:parentActivityName=".ppv.PpvActivity"
             android:theme="@style/AppTheme.NoActionBar">

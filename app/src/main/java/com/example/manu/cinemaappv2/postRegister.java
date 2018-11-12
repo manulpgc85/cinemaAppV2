@@ -22,7 +22,7 @@ public class postRegister extends AppCompatActivity {
     end.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(contexto, FinishActivity.class);
+            Intent intent = new Intent(contexto, PrincipalActivity.class);
             startActivity(intent);
         }
     });

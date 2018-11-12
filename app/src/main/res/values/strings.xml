@@ -117,4 +117,5 @@
     <string name="kind">Favorites Kinds of movies</string>
     <string name="text">Congratulations, you have registered and your data has been saved correctly.\n\n
 Click on the end button to enjoy the application</string>
+    <string name="go">Click this button for go to Nav. Drawer</string>
 </resources>
