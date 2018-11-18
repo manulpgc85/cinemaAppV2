@@ -1,0 +1,123 @@
+<resources>
+    <string name="app_name">CinemaAppv2</string>
+    <string name="title_activity_date">DatesActivity</string>
+    <string name="title_activity_moredates">MoredatesActivity</string>
+    <string name="title_activity_more_more_dates">MoreMoreDatesActivity</string>
+    <string name="title_activity_moremore_dates">MoremoreDatesActivity</string>
+    <string name="title_activity_kind_films">KindFilmsActivity</string>
+    <!-- Error Message / Validation Messages-->
+    <string name="error_title">Error</string>
+    <string name="error_text">Error</string>
+    <string name="error_page">Sorry this page is under construction.\n We will hope that this page is finish as soon as possible</string>
+    <string name="error_validate">This element can not be empty</string>
+    <string name="error_validate_older">Are you a mummy??</string>
+    <string name="error_validate_future">Are you a time traveler?</string>
+    <!-- Buttons-->
+    <string name="button_next">Next</string>
+    <string name="button_back">Back</string>
+    <string name="button_finish">Finish</string>
+    <string name="button_register">Sign In</string>
+    <string name="button_start">Start</string>
+    <string name="button_check">Check</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_edit">Edit</string>
+    <string name="button_delete">Delete</string>
+    <string name="button_close">Close</string>
+    <string name="button_go">Go</string>
+    <string name="button_add">Add</string>
+    <!-- Texts-->
+    <string name="TextName">Name</string>
+    <string name="TextLastname">Lastname</string>
+    <string name="TextAddress">Address</string>
+    <string name="TextZip">Zip Code</string>
+    <string name="TextCountry">Country</string>
+    <string name="TextCity">City</string>
+    <string name="TextGenre">Genre</string>
+    <string name="TextPhone">Phone</string>
+    <string name="TextMail">Mail</string>
+    <string name="TextYear">Year of Birth</string>
+    <string name="TextMonth">Month of Birth</string>
+    <string name="TextDay">Day of Birth</string>
+    <string name="TextWelcome">Welcome</string>
+    <string name="title">Title:</string>
+    <string name="director">Director:</string>
+    <string name="guionist">Guionist:</string>
+    <string name="genre">Genre:</string>
+    <string name="subgenre">Subgenre:</string>
+    <string name="actors">Actors:</string>
+    <string name="actor1">Actor1</string>
+    <string name="actor2">Actor2</string>
+    <string name="actor3">Actor3</string>
+    <string name="actor4">Actor4</string>
+    <string name="title_activity_principal">PrincipalActivity</string>
+    <!--Process-->
+    <string name="process_charging">Charging dates</string>
+    <!-- Texts Navigation Drawer-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="sin_datos">Sin datos</string>
+    <string name="year_movie">Year of the movie:</string>
+    <!-- Imported-->
+
+    <!--App Date Page Resources-->
+
+    <string name="name">Name:</string>
+    <string name="lastname">Lastname:</string>
+    <string name="address">Address:</string>
+    <string name="mail">Email:</string>
+    <string name="phone">Phone:</string>
+    <!--<string name="genre">Genre:</string>-->
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <!--App Result Page Resources-->
+    <string name="empty">Empty</string>
+    <string name="datessigned">The dates signed are:</string>
+    <string name="more">More Saved Dates</string>
+
+    <string name="payperview">Your favorite PPV platform is:</string>
+    <!--App More More Dates Page Resources-->
+    <string name="year">The year of your birth is:</string>
+    <string name="month">The month of your birth is:</string>
+    <string name="day">The day of your birth is:</string>
+
+    <string name="movistar">Movistar</string>
+    <string name="netflix">Netflix</string>
+    <string name="hbo">HBO</string>
+    <string name="amazon">Amazon</string>
+    <string name="vodafone">Vodafone</string>
+    <!--App Validates Messages Resources-->
+    <string name="minimum">You must select 3 kinds maximum</string>
+    <string name="fail_blank">Obligatory date</string>
+    <!--App Date Page Resources-->
+    <string name="zip">ZIP:</string>
+    <string name="country">Country:</string>
+    <string name="city">City:</string>
+    <string name="accept">Accept all terms and conditions</string>
+    <!--App Result Page 2 Resources-->
+    <string name="birth">Birth:</string>
+    <string name="back">Come Back</string>
+    <!--App Common Resources-->
+    <string name="ppv">Your favorite PPV platform is:</string>
+    <string name="img_description">Spirou</string>
+    <!--App KindFilms Resources-->
+    <string name="favorite">What is the kind of films that you like it?</string>
+    <string name="horror">Horror</string>
+    <string name="comedy">Comedy</string>
+    <string name="drama">Drama</string>
+    <string name="action">Action</string>
+    <string name="adventure">Adventure</string>
+    <string name="superheroes">Superheroes</string>
+    <string name="fantasy">Fantasy</string>
+    <string name="thriller">Thriller</string>
+    <string name="western">Western</string>
+    <string name="kind">Favorites Kinds of movies</string>
+    <string name="text">Congratulations, you have registered and your data has been saved correctly.\n\n
+Click on the end button to enjoy the application</string>
+    <string name="go">Click this button for go to Nav. Drawer</string>
+    <string name="title_activity_sections">SectionsActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+</resources>
