@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,7 @@ public class Adapter extends BaseAdapter {
     Films f;
     Activity act;
     int id = 0;
-
+    Activity context;
     public Adapter(ArrayList<Films> list, Activity act, daoFilms dao) {
 
         this.list = list;
@@ -138,7 +139,7 @@ public class Adapter extends BaseAdapter {
                             list = dao.seeAlls();
                             notifyDataSetChanged();
                             dialog.dismiss();
-                        } catch (Exception e) {
+                            } catch (Exception e) {
                             Toast.makeText(act, "Error", Toast.LENGTH_SHORT).show();
                         }
                     }

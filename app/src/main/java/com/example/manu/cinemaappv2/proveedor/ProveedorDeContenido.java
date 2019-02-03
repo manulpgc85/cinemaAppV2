@@ -12,6 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.SparseArray;
 
 public class ProveedorDeContenido extends ContentProvider {
@@ -19,8 +20,10 @@ public class ProveedorDeContenido extends ContentProvider {
     public static final int INVALID_URI = -1;
     private static final int PPV_ONE_REG = 1;
     private static final int PPV_ALL_REGS = 2;
+    private static final int PPV_ALL_REGS_PPVS = 3;
+
     private static final String DATABASE_NAME = "ALLFILMS.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
     private static final String FILMS_TABLE_NAME = "ppvFilms";
     // Defines a helper object that matches content URIs to table-specific parameters
     private static final UriMatcher sUriMatcher;
@@ -54,6 +57,10 @@ public class ProveedorDeContenido extends ContentProvider {
                 Contrato.AUTHORITY,
                 FILMS_TABLE_NAME + "/#",
                 PPV_ONE_REG);
+        sUriMatcher.addURI(
+                Contrato.AUTHORITY,
+                FILMS_TABLE_NAME + "/PPVS",
+                PPV_ALL_REGS_PPVS);
 
         // Specifies a custom MIME type for the picture URL table
 
@@ -144,6 +151,9 @@ public class ProveedorDeContenido extends ContentProvider {
 
         String query = null;
 
+        Log.i("tiburcio", "numURI: " + sUriMatcher.match(uri));
+        Log.i("tiburcio", "uri: " + uri.getAuthority() + "," + uri.getPath());
+
         switch (sUriMatcher.match(uri)) {
             case PPV_ONE_REG:
                 if (null == selection) selection = "";
@@ -156,7 +166,16 @@ public class ProveedorDeContenido extends ContentProvider {
                         Contrato.PPV._ID + " ASC";
                 qb.setTables(FILMS_TABLE_NAME);
                 break;
+            case PPV_ALL_REGS_PPVS:
+                if (TextUtils.isEmpty(sortOrder)) sortOrder =
+                        Contrato.PPV._ID + " ASC";
+                selection += Contrato.PPV.CATEGORY + " != 'Cine'";
+                qb.setTables(FILMS_TABLE_NAME);
+                Log.i("tiburcio", "la bola entró");
+                break;
         }
+
+        //SELECT PROJECTION FROM TABLA(QB.SETTABLES) WHERE SELECTION
 
         Cursor c;
         c = qb.query(db, projection, selection, selectionArgs, null, null,
@@ -220,7 +239,8 @@ public class ProveedorDeContenido extends ContentProvider {
                     + Contrato.PPV.TITLE + " TEXT , "
                     + Contrato.PPV.DIRECTOR + " TEXT ,"
                     + Contrato.PPV.GUIONIST + " TEXT ,"
-                    + Contrato.PPV.YEAR + " INTEGER);"
+                    + Contrato.PPV.YEAR + " INTEGER ,"
+                    + Contrato.PPV.CATEGORY + " TEXT" + ");"
             );
 
             inicializarDatos(db);
@@ -229,13 +249,13 @@ public class ProveedorDeContenido extends ContentProvider {
 
         void inicializarDatos(SQLiteDatabase db) {
 
-            db.execSQL("INSERT INTO " + FILMS_TABLE_NAME + " (" + Contrato.PPV._ID + "," + Contrato.PPV.TITLE + "," + Contrato.PPV.DIRECTOR + "," + Contrato.PPV.GUIONIST + "," + Contrato.PPV.YEAR + ") " +
-                    "VALUES (1,'Home Alone','Chris Columbus','John Hughes',1990)");
-            db.execSQL("INSERT INTO " + FILMS_TABLE_NAME + " (" + Contrato.PPV._ID + "," + Contrato.PPV.TITLE + "," + Contrato.PPV.DIRECTOR + "," + Contrato.PPV.GUIONIST + "," + Contrato.PPV.YEAR + ") " +
-                    "VALUES (2,'Home Alone 2','Chris Columbus','John Hughes',1990)");
+            db.execSQL("INSERT INTO " + FILMS_TABLE_NAME + " (" + Contrato.PPV._ID + "," + Contrato.PPV.TITLE + "," + Contrato.PPV.DIRECTOR + "," + Contrato.PPV.GUIONIST + "," + Contrato.PPV.YEAR + "," + Contrato.PPV.CATEGORY+ ") " +
+                    "VALUES (1,'Home Alone','Chris Columbus','John Hughes',1990, 'Cine')");
+            db.execSQL("INSERT INTO " + FILMS_TABLE_NAME + " (" + Contrato.PPV._ID + "," + Contrato.PPV.TITLE + "," + Contrato.PPV.DIRECTOR + "," + Contrato.PPV.GUIONIST + "," + Contrato.PPV.YEAR + "," + Contrato.PPV.CATEGORY+ ") " +
+                    "VALUES (2,'Home Alone 2','Chris Columbus','John Hughes',1990, 'Cine')");
+            db.execSQL("INSERT INTO " + FILMS_TABLE_NAME + " (" + Contrato.PPV._ID + "," + Contrato.PPV.TITLE + "," + Contrato.PPV.DIRECTOR + "," + Contrato.PPV.GUIONIST + "," + Contrato.PPV.YEAR + "," + Contrato.PPV.CATEGORY +") " +
+                    "VALUES (3,'WaterWorld','Peter Columbus','John Hughes',1998, 'NetFlix')");
             /*db.execSQL("INSERT INTO " + FILMS_TABLE_NAME + " (" +  Contrato.PPV._ID + "," + Contrato.PPV.TITLE + "," + Contrato.PPV.DIRECTOR + "," + Contrato.PPV.GUIONIST + "," + Contrato.PPV.YEAR + "," + Contrato.PPV.GENRE + "," + Contrato.PPV.SUBGENRE + "," + Contrato.PPV.ACTOR1 + "," + Contrato.PPV.ACTOR2 + "," + Contrato.PPV.ACTOR3 + "," + Contrato.PPV.ACTOR4+ ") " +
-                    "VALUES (3,'Desarrollo de Aplicaciones Multiplataforma','DAM')");
-            db.execSQL("INSERT INTO " + FILMS_TABLE_NAME + " (" +  Contrato.PPV._ID + "," + Contrato.PPV.TITLE + "," + Contrato.PPV.DIRECTOR + "," + Contrato.PPV.GUIONIST + "," + Contrato.PPV.YEAR + "," + Contrato.PPV.GENRE + "," + Contrato.PPV.SUBGENRE + "," + Contrato.PPV.ACTOR1 + "," + Contrato.PPV.ACTOR2 + "," + Contrato.PPV.ACTOR3 + "," + Contrato.PPV.ACTOR4+ ") " +
                     "VALUES (4,'Sistemas Microinformáticos y Redes','SMR')");*/
         }
 

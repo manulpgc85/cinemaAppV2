@@ -1,4 +1,4 @@
-package com.example.manu.cinemaappv2.ppv;
+package com.example.manu.cinemaappv2.comming;
 
 import android.content.Context;
 import android.content.Intent;
@@ -26,10 +26,12 @@ import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.example.manu.cinemaappv2.R;
 import com.example.manu.cinemaappv2.constants.G;
+import com.example.manu.cinemaappv2.ppv.PpvInsertActivity;
+import com.example.manu.cinemaappv2.ppv.PpvModifyActivity;
 import com.example.manu.cinemaappv2.proveedor.Contrato;
 import com.example.manu.cinemaappv2.proveedor.PpvProveedor;
 
-public class PpvListFragment extends ListFragment
+public class CommingListFragment extends ListFragment
         implements LoaderManager.LoaderCallbacks<Cursor> {
 
     //private static final String LOGTAG = "Tiburcio - CommingListFragment";
@@ -41,8 +43,8 @@ public class PpvListFragment extends ListFragment
     View viewSelected;
     int ppvId;
     Intent intent;
-    public static PpvListFragment newInstance() {
-        PpvListFragment f = new PpvListFragment();
+    public static CommingListFragment newInstance() {
+        CommingListFragment f = new CommingListFragment();
 
         return f;
     }
@@ -144,7 +146,7 @@ public class PpvListFragment extends ListFragment
                     ppvId = (Integer) viewSelected.getTag();
                     PpvProveedor.deleteRecord(getActivity().getContentResolver(),ppvId);
                     mActionMode.finish();
-                    intent =new Intent(getActivity(), PpvActivity.class);
+                    intent =new Intent(getActivity(), CommingActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.menu_edit:
@@ -173,16 +175,19 @@ public class PpvListFragment extends ListFragment
                                         Contrato.PPV.TITLE,
                                         Contrato.PPV.DIRECTOR,
                                         Contrato.PPV.GUIONIST,
-                                        Contrato.PPV.YEAR
+                                        Contrato.PPV.YEAR,
+                                        Contrato.PPV.CATEGORY
 
         };
 
-        Uri baseUri = Contrato.PPV.CONTENT_URI;
+        Uri baseUri = Uri.parse("content://" + Contrato.AUTHORITY + "/ppvFilms/PPVS");
+
+        Log.i("tiburcio", "tomar por saco");
 
         // Now create and return a CursorLoader that will take care of
         // creating a Cursor for the data being displayed.
 
-        String selection = null;
+        String selection = "";
 
         return new CursorLoader(getActivity(), baseUri,
                 columns, selection, null, null);
@@ -192,7 +197,7 @@ public class PpvListFragment extends ListFragment
         // Swap the new cursor in.  (The framework will take care of closing the
         // old cursor once we return.)
 
-        Uri laUriBase = Uri.parse("content://" + Contrato.AUTHORITY + "/PPV");
+        Uri laUriBase = Uri.parse("content://" + Contrato.AUTHORITY + "/ppvFilms/kakita");
         data.setNotificationUri(getActivity().getContentResolver(), laUriBase);
 
         mAdapter.swapCursor(data);

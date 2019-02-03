@@ -1,6 +1,8 @@
 package com.example.manu.cinemaappv2;
 
+import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,6 +19,7 @@ public class CrudActivity extends AppCompatActivity {
     Adapter adapter;
     ArrayList<Films> list;
     Films f;
+    Activity context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +74,8 @@ public class CrudActivity extends AppCompatActivity {
                             //list=dao.seeAlls();
                             adapter.notifyDataSetChanged();
                             dialog.dismiss();
+                            Intent intent = new Intent(context, CrudActivity.class );
+                            startActivity(intent);
                         } catch (Exception e) {
                             Toast.makeText(getApplication(), "Error", Toast.LENGTH_SHORT).show();
                         }

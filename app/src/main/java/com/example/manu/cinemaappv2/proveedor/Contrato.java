@@ -16,5 +16,6 @@ public class Contrato {
         public static final String DIRECTOR = "Director";
         public static final String GUIONIST = "Guionist";
         public static final String YEAR = "Year";
+        public static final String CATEGORY = "Category";
     }
 }

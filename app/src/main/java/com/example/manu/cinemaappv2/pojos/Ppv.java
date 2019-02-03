@@ -6,13 +6,15 @@ public class Ppv {
     String guionist;
     Integer year;
     Integer id;
+    String category;
 
 
-    public Ppv(String titulo, String director, String guionist, Integer year) {
+    public Ppv(String titulo, String director, String guionist, Integer year, String category) {
         this.titulo = titulo;
         this.director = director;
         this.guionist = guionist;
         this.year = year;
+        this.category = category;
     }
 
     public Ppv() {
@@ -29,6 +31,14 @@ public class Ppv {
 
     public Integer getId() {
         return id;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public void setId(Integer id) {

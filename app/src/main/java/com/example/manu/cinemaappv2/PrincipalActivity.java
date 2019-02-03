@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.manu.cinemaappv2.comming.CommingActivity;
 import com.example.manu.cinemaappv2.ppv.PpvActivity;
 
 public class PrincipalActivity extends AppCompatActivity
@@ -97,7 +98,7 @@ public class PrincipalActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_comming) {
 
-            Intent intent = new Intent(contexto, ErrorActivity.class);
+            Intent intent = new Intent(contexto, CommingActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_ppv) {
