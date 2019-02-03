@@ -26,10 +26,10 @@ import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.example.manu.cinemaappv2.R;
 import com.example.manu.cinemaappv2.constants.G;
-import com.example.manu.cinemaappv2.ppv.PpvInsertActivity;
-import com.example.manu.cinemaappv2.ppv.PpvModifyActivity;
+import com.example.manu.cinemaappv2.FilmRegistry.FilmRegistryInsertActivity;
+import com.example.manu.cinemaappv2.FilmRegistry.FilmRegistryModifyActivity;
 import com.example.manu.cinemaappv2.proveedor.Contrato;
-import com.example.manu.cinemaappv2.proveedor.PpvProveedor;
+import com.example.manu.cinemaappv2.proveedor.FilmRegistryProveedor;
 
 public class CommingListFragment extends ListFragment
         implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -75,7 +75,7 @@ public class CommingListFragment extends ListFragment
 
         switch (item.getItemId()){
             case G.INSERT:
-            Intent intent = new Intent(getActivity(),PpvInsertActivity.class);
+            Intent intent = new Intent(getActivity(), FilmRegistryInsertActivity.class);
             startActivity(intent);
             break;
         }
@@ -144,14 +144,14 @@ public class CommingListFragment extends ListFragment
             switch (item.getItemId()){
                 case R.id.menu_delete:
                     ppvId = (Integer) viewSelected.getTag();
-                    PpvProveedor.deleteRecord(getActivity().getContentResolver(),ppvId);
+                    FilmRegistryProveedor.deleteRecord(getActivity().getContentResolver(),ppvId);
                     mActionMode.finish();
-                    intent =new Intent(getActivity(), CommingActivity.class);
+                    intent =new Intent(getActivity(), PPVActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.menu_edit:
                     ppvId = (Integer) viewSelected.getTag();
-                    intent = new Intent(getActivity(),PpvModifyActivity.class);
+                    intent = new Intent(getActivity(), FilmRegistryModifyActivity.class);
                     intent.putExtra(Contrato.PPV._ID, ppvId);
                     startActivity(intent);
                     mActionMode.finish();

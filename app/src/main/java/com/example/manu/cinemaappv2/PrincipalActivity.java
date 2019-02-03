@@ -12,8 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.manu.cinemaappv2.comming.CommingActivity;
-import com.example.manu.cinemaappv2.ppv.PpvActivity;
+import com.example.manu.cinemaappv2.comming.PPVActivity;
+import com.example.manu.cinemaappv2.FilmRegistry.FilmRegistryActivity;
 
 public class PrincipalActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -83,36 +83,44 @@ public class PrincipalActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_poster) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+            Intent intent = new Intent(contexto, ErrorActivity.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_trailer) {
+
+            Intent intent = new Intent(contexto, ErrorActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_news) {
+
+            Intent intent = new Intent(contexto, ErrorActivity.class);
+            startActivity(intent);
+
+        } else if (id == R.id.nav_onscreen) {
 
             Intent intent = new Intent(contexto, CrudActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_comming) {
-
-            Intent intent = new Intent(contexto, CommingActivity.class);
-            startActivity(intent);
-
         } else if (id == R.id.nav_ppv) {
 
-            Intent intent = new Intent(contexto, PpvActivity.class);
+            Intent intent = new Intent(contexto, PPVActivity.class);
+            startActivity(intent);
+
+        } else if (id == R.id.nav_registry) {
+
+            Intent intent = new Intent(contexto, FilmRegistryActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_comming) {
+
+            Intent intent = new Intent(contexto, ErrorActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_register) {
 
             Intent intent = new Intent(contexto, RegisterActivity.class);
             startActivity(intent);
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
 
         }
 

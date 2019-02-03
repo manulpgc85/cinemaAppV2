@@ -1,4 +1,4 @@
-package com.example.manu.cinemaappv2.ppv;
+package com.example.manu.cinemaappv2.FilmRegistry;
 
 import android.content.Context;
 import android.content.Intent;
@@ -27,22 +27,22 @@ import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.example.manu.cinemaappv2.R;
 import com.example.manu.cinemaappv2.constants.G;
 import com.example.manu.cinemaappv2.proveedor.Contrato;
-import com.example.manu.cinemaappv2.proveedor.PpvProveedor;
+import com.example.manu.cinemaappv2.proveedor.FilmRegistryProveedor;
 
-public class PpvListFragment extends ListFragment
+public class FilmRegistryListFragment extends ListFragment
         implements LoaderManager.LoaderCallbacks<Cursor> {
 
     //private static final String LOGTAG = "Tiburcio - CommingListFragment";
 
-    PPVCursorAdapter mAdapter;
+    FilmRegistryCursorAdapter mAdapter;
     LoaderManager.LoaderCallbacks<Cursor> mCallbacks;
 
     ActionMode mActionMode;
     View viewSelected;
     int ppvId;
     Intent intent;
-    public static PpvListFragment newInstance() {
-        PpvListFragment f = new PpvListFragment();
+    public static FilmRegistryListFragment newInstance() {
+        FilmRegistryListFragment f = new FilmRegistryListFragment();
 
         return f;
     }
@@ -73,7 +73,7 @@ public class PpvListFragment extends ListFragment
 
         switch (item.getItemId()){
             case G.INSERT:
-            Intent intent = new Intent(getActivity(),PpvInsertActivity.class);
+            Intent intent = new Intent(getActivity(), FilmRegistryInsertActivity.class);
             startActivity(intent);
             break;
         }
@@ -94,7 +94,7 @@ public class PpvListFragment extends ListFragment
         //Log.i(LOGTAG, "onCreateView");
         View v = inflater.inflate(R.layout.fragment_ppv_list, container, false);
 
-        mAdapter = new PPVCursorAdapter(getActivity());
+        mAdapter = new FilmRegistryCursorAdapter(getActivity());
         setListAdapter(mAdapter);
 
         return v;
@@ -142,14 +142,14 @@ public class PpvListFragment extends ListFragment
             switch (item.getItemId()){
                 case R.id.menu_delete:
                     ppvId = (Integer) viewSelected.getTag();
-                    PpvProveedor.deleteRecord(getActivity().getContentResolver(),ppvId);
+                    FilmRegistryProveedor.deleteRecord(getActivity().getContentResolver(),ppvId);
                     mActionMode.finish();
-                    intent =new Intent(getActivity(), PpvActivity.class);
+                    intent =new Intent(getActivity(), FilmRegistryActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.menu_edit:
                     ppvId = (Integer) viewSelected.getTag();
-                    intent = new Intent(getActivity(),PpvModifyActivity.class);
+                    intent = new Intent(getActivity(), FilmRegistryModifyActivity.class);
                     intent.putExtra(Contrato.PPV._ID, ppvId);
                     startActivity(intent);
                     mActionMode.finish();
@@ -205,8 +205,8 @@ public class PpvListFragment extends ListFragment
         mAdapter.swapCursor(null);
     }
 
-    public class PPVCursorAdapter extends CursorAdapter {
-        public PPVCursorAdapter(Context context) {
+    public class FilmRegistryCursorAdapter extends CursorAdapter {
+        public FilmRegistryCursorAdapter(Context context) {
             super(context, null, false);
         }
 

@@ -1,8 +1,8 @@
-package com.example.manu.cinemaappv2.ppv;
+package com.example.manu.cinemaappv2.FilmRegistry;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -12,37 +12,18 @@ import android.widget.EditText;
 import com.example.manu.cinemaappv2.R;
 import com.example.manu.cinemaappv2.constants.G;
 import com.example.manu.cinemaappv2.pojos.Ppv;
-import com.example.manu.cinemaappv2.proveedor.Contrato;
-import com.example.manu.cinemaappv2.proveedor.PpvProveedor;
+import com.example.manu.cinemaappv2.proveedor.FilmRegistryProveedor;
 
-public class PpvModifyActivity extends AppCompatActivity {
-    EditText editTextPPVTitle;
-    EditText editTextPPVDirector;
-    EditText editTextPPVGuionist;
-    EditText editTextPPVYear;
-    int ppvId;
+public class FilmRegistryInsertActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ppv_details);
-
         Toolbar toolbar = findViewById(R.id.toolbar_details_activity);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        editTextPPVTitle =(EditText) findViewById(R.id.Title);
-        editTextPPVDirector =(EditText) findViewById(R.id.Director);
-        editTextPPVGuionist =(EditText) findViewById(R.id.Guionist);
-        editTextPPVYear =(EditText) findViewById(R.id.Year);
-
-        ppvId = this.getIntent().getExtras().getInt(Contrato.PPV._ID);
-        Ppv ppv =PpvProveedor.readRecord(getContentResolver(), ppvId);
-
-        editTextPPVTitle.setText(ppv.getTitulo());
-        editTextPPVDirector.setText(ppv.getDirector());
-        editTextPPVGuionist.setText(ppv.getGuionist());
-        editTextPPVYear.setText(ppv.getYear().toString());
     }
 
     @Override
@@ -65,6 +46,11 @@ public class PpvModifyActivity extends AppCompatActivity {
     }
 
     void attempSave(){
+        EditText editTextPPVTitle =(EditText) findViewById(R.id.Title);
+        EditText editTextPPVDirector =(EditText) findViewById(R.id.Director);
+        EditText editTextPPVGuionist =(EditText) findViewById(R.id.Guionist);
+        EditText editTextPPVYear =(EditText) findViewById(R.id.Year);
+
         editTextPPVTitle.setError(null);
         editTextPPVDirector.setError(null);
         editTextPPVGuionist.setError(null);
@@ -100,10 +86,10 @@ public class PpvModifyActivity extends AppCompatActivity {
         }
 
 
-        Ppv ppv = new Ppv(ppvId, Title, Director, Guionist, Integer.parseInt(Year));
-        PpvProveedor.updateRecord(getContentResolver(),ppv);
+        Ppv ppv = new Ppv(G.SIN_VALOR_INT, Title, Director, Guionist, Integer.parseInt(Year));
+        FilmRegistryProveedor.insertRecord(getContentResolver(),ppv);
 
-        Intent intent =new Intent(this, PpvActivity.class);
+        Intent intent =new Intent(this, FilmRegistryActivity.class);
         startActivity(intent);
         //finish();
     }

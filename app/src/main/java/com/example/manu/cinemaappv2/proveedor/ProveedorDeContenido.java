@@ -12,15 +12,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.SparseArray;
 
 public class ProveedorDeContenido extends ContentProvider {
     // Indicates an invalid content URI
     public static final int INVALID_URI = -1;
-    private static final int PPV_ONE_REG = 1;
-    private static final int PPV_ALL_REGS = 2;
-    private static final int PPV_ALL_REGS_PPVS = 3;
+    private static final int FR_ONE_REG = 1;
+    private static final int FR_ALL_REGS = 2;
+    private static final int FR_ALL_REGS_PPVS = 3;
 
     private static final String DATABASE_NAME = "ALLFILMS.db";
     private static final int DATABASE_VERSION = 4;
@@ -52,24 +51,24 @@ public class ProveedorDeContenido extends ContentProvider {
         sUriMatcher.addURI(
                 Contrato.AUTHORITY,
                 FILMS_TABLE_NAME,
-                PPV_ALL_REGS);
+                FR_ALL_REGS);
         sUriMatcher.addURI(
                 Contrato.AUTHORITY,
                 FILMS_TABLE_NAME + "/#",
-                PPV_ONE_REG);
+                FR_ONE_REG);
         sUriMatcher.addURI(
                 Contrato.AUTHORITY,
                 FILMS_TABLE_NAME + "/PPVS",
-                PPV_ALL_REGS_PPVS);
+                FR_ALL_REGS_PPVS);
 
         // Specifies a custom MIME type for the picture URL table
 
         sMimeTypes.put(
-                PPV_ALL_REGS,
+                FR_ALL_REGS,
                 "vnd.android.cursor.dir/vnd." +
                         Contrato.AUTHORITY + "." + FILMS_TABLE_NAME);
         sMimeTypes.put(
-                PPV_ONE_REG,
+                FR_ONE_REG,
                 "vnd.android.cursor.item/vnd." +
                         Contrato.AUTHORITY + "." + FILMS_TABLE_NAME);
     }
@@ -102,7 +101,7 @@ public class ProveedorDeContenido extends ContentProvider {
 
         String table = "";
         switch (sUriMatcher.match(uri)) {
-            case PPV_ALL_REGS:
+            case FR_ALL_REGS:
                 table = FILMS_TABLE_NAME;
                 break;
         }
@@ -125,13 +124,13 @@ public class ProveedorDeContenido extends ContentProvider {
 
         String table = "";
         switch (sUriMatcher.match(uri)) {
-            case PPV_ONE_REG:
+            case FR_ONE_REG:
                 if (null == selection) selection = "";
                 selection += Contrato.PPV._ID + " = "
                         + uri.getLastPathSegment();
                 table = FILMS_TABLE_NAME;
                 break;
-            case PPV_ALL_REGS:
+            case FR_ALL_REGS:
                 table = FILMS_TABLE_NAME;
                 break;
         }
@@ -151,27 +150,27 @@ public class ProveedorDeContenido extends ContentProvider {
 
         String query = null;
 
-        Log.i("tiburcio", "numURI: " + sUriMatcher.match(uri));
-        Log.i("tiburcio", "uri: " + uri.getAuthority() + "," + uri.getPath());
+        //Log.i("tiburcio", "numURI: " + sUriMatcher.match(uri));
+        //Log.i("tiburcio", "uri: " + uri.getAuthority() + "," + uri.getPath());
 
         switch (sUriMatcher.match(uri)) {
-            case PPV_ONE_REG:
+            case FR_ONE_REG:
                 if (null == selection) selection = "";
                 selection += Contrato.PPV._ID + " = "
                         + uri.getLastPathSegment();
                 qb.setTables(FILMS_TABLE_NAME);
                 break;
-            case PPV_ALL_REGS:
+            case FR_ALL_REGS:
                 if (TextUtils.isEmpty(sortOrder)) sortOrder =
                         Contrato.PPV._ID + " ASC";
                 qb.setTables(FILMS_TABLE_NAME);
                 break;
-            case PPV_ALL_REGS_PPVS:
+            case FR_ALL_REGS_PPVS:
                 if (TextUtils.isEmpty(sortOrder)) sortOrder =
                         Contrato.PPV._ID + " ASC";
                 selection += Contrato.PPV.CATEGORY + " != 'Cine'";
                 qb.setTables(FILMS_TABLE_NAME);
-                Log.i("tiburcio", "la bola entró");
+             //   Log.i("tiburcio", "la bola entró");
                 break;
         }
 
@@ -193,13 +192,13 @@ public class ProveedorDeContenido extends ContentProvider {
 
         String table = "";
         switch (sUriMatcher.match(uri)) {
-            case PPV_ONE_REG:
+            case FR_ONE_REG:
                 if (null == selection) selection = "";
                 selection += Contrato.PPV._ID + " = "
                         + uri.getLastPathSegment();
                 table = FILMS_TABLE_NAME;
                 break;
-            case PPV_ALL_REGS:
+            case FR_ALL_REGS:
                 table = FILMS_TABLE_NAME;
                 break;
         }

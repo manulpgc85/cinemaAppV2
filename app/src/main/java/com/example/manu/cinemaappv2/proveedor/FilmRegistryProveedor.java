@@ -7,7 +7,7 @@ import android.net.Uri;
 
 import com.example.manu.cinemaappv2.pojos.Ppv;
 
-public class PpvProveedor {
+public class FilmRegistryProveedor {
     public static void insertRecord(ContentResolver resolver, Ppv ppv){
         Uri uri = Contrato.PPV.CONTENT_URI;
 

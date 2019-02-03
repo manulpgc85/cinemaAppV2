@@ -13,45 +13,34 @@
             android:icon="@drawable/ic_billete"
             android:title="Comming Soon" />
         <item
-            android:id="@+id/nav_news"
+            android:id="@+id/nav_onscreen"
             android:icon="@drawable/ic_film_roll"
             android:title="On Screen"/>
         <item
             android:id="@+id/nav_ppv"
             android:icon="@drawable/ic_tv"
             android:title="Platforms PPV"/>
+        <item
+            android:id="@+id/nav_registry"
+            android:icon="@drawable/ic_video"
+            android:title="Film Registry"/>
     </group>
-    <item android:title="Interactive">
+    <item android:title="Information">
         <menu>
             <item
-                android:id="@+id/nav_camera"
-                android:icon="@drawable/ic_menu_camera"
-                android:title="Import" />
+                android:id="@+id/nav_poster"
+                android:icon="@drawable/ic_cartel"
+                android:title="Posters" />
             <item
-                android:id="@+id/nav_gallery"
-                android:icon="@drawable/ic_menu_gallery"
-                android:title="Gallery" />
+                android:id="@+id/nav_trailer"
+                android:icon="@drawable/ic_reproductor_de_video"
+                android:title="Trailers" />
             <item
-                android:id="@+id/nav_slideshow"
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="Slideshow" />
-            <item
-                android:id="@+id/nav_manage"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="Tools" />
+                android:id="@+id/nav_news"
+                android:icon="@drawable/ic_news"
+                android:title="News" />
         </menu>
     </item>
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
+
 
 </menu>

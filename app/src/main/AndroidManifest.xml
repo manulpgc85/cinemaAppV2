@@ -35,7 +35,7 @@
                 android:value="com.example.manu.cinemaappv2.PrincipalActivity" />
         </activity>
         <activity
-            android:name=".ppv.PpvActivity"
+            android:name=".FilmRegistry.FilmRegistryActivity"
             android:parentActivityName=".PrincipalActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
@@ -92,23 +92,23 @@
                 android:value="com.example.manu.cinemaappv2.RegisterActivity" />
         </activity>
         <activity android:name=".postRegister" />
-        <activity android:name=".ppv.PpvInsertActivity"
-            android:parentActivityName=".ppv.PpvActivity"
+        <activity android:name=".FilmRegistry.FilmRegistryInsertActivity"
+            android:parentActivityName=".FilmRegistry.FilmRegistryActivity"
             android:theme="@style/AppTheme.NoActionBar">
                 <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".ppv.PpvActivity"/>
+                    android:value=".FilmRegistry.FilmRegistryActivity"/>
     </activity>
 
-        <activity android:name=".ppv.PpvModifyActivity"
-            android:parentActivityName=".ppv.PpvActivity"
+        <activity android:name=".FilmRegistry.FilmRegistryModifyActivity"
+            android:parentActivityName=".FilmRegistry.FilmRegistryActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ppv.PpvActivity"/>
+                android:value=".FilmRegistry.FilmRegistryActivity"/>
         </activity>
         <activity
-            android:name=".comming.CommingActivity"
+            android:name=".comming.PPVActivity"
             android:parentActivityName=".PrincipalActivity"
             android:theme="@style/AppTheme.NoActionBar">
 

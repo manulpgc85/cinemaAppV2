@@ -10,9 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.example.manu.cinemaappv2.R;
-import com.example.manu.cinemaappv2.ppv.PpvInsertActivity;
+import com.example.manu.cinemaappv2.FilmRegistry.FilmRegistryInsertActivity;
 
-public class CommingActivity extends AppCompatActivity {
+public class PPVActivity extends AppCompatActivity {
 Activity contexto= this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ Activity contexto= this;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(contexto,PpvInsertActivity.class);
+                Intent intent = new Intent(contexto, FilmRegistryInsertActivity.class);
                 startActivity(intent);
             }
         });

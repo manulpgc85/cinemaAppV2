@@ -1,4 +1,4 @@
-package com.example.manu.cinemaappv2.ppv;
+package com.example.manu.cinemaappv2.FilmRegistry;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.view.View;
 
 import com.example.manu.cinemaappv2.R;
 
-public class PpvActivity extends AppCompatActivity {
+public class FilmRegistryActivity extends AppCompatActivity {
 Activity contexto= this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,17 +24,17 @@ Activity contexto= this;
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
 
-        PpvListFragment ppvListFragment = new PpvListFragment();
+        FilmRegistryListFragment filmRegistryListFragment = new FilmRegistryListFragment();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.fragment_ppv, ppvListFragment);
+        transaction.add(R.id.fragment_ppv, filmRegistryListFragment);
         transaction.commit();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(contexto,PpvInsertActivity.class);
+                Intent intent = new Intent(contexto, FilmRegistryInsertActivity.class);
                 startActivity(intent);
             }
         });
