@@ -13,7 +13,7 @@
             android:icon="@drawable/ic_billete"
             android:title="Comming Soon" />
         <item
-            android:id="@+id/nav_onscreen"
+            android:id="@+id/nav_omscreen"
             android:icon="@drawable/ic_film_roll"
             android:title="On Screen"/>
         <item
@@ -24,6 +24,7 @@
             android:id="@+id/nav_registry"
             android:icon="@drawable/ic_video"
             android:title="Film Registry"/>
+            />
     </group>
     <item android:title="Information">
         <menu>
@@ -41,6 +42,5 @@
                 android:title="News" />
         </menu>
     </item>
-
 
 </menu>

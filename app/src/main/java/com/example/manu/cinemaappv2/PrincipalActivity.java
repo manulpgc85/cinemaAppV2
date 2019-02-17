@@ -99,7 +99,7 @@ public class PrincipalActivity extends AppCompatActivity
             Intent intent = new Intent(contexto, ErrorActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_onscreen) {
+        } else if (id == R.id.nav_omscreen) {
 
             Intent intent = new Intent(contexto, CrudActivity.class);
             startActivity(intent);
@@ -109,10 +109,10 @@ public class PrincipalActivity extends AppCompatActivity
             Intent intent = new Intent(contexto, PPVActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_registry) {
+       /* } else if (id == R.id.nav_registry) {
 
             Intent intent = new Intent(contexto, FilmRegistryActivity.class);
-            startActivity(intent);
+            startActivity(intent);*/
         } else if (id == R.id.nav_comming) {
 
             Intent intent = new Intent(contexto, ErrorActivity.class);
