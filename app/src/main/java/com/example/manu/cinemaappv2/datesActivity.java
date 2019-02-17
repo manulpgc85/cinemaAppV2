@@ -58,8 +58,8 @@ public class datesActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editText_mail);
         textView_Genre= findViewById(R.id.textView_Genre);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fabDate = (FloatingActionButton) findViewById(R.id.fabDate);
+        fabDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 validate();

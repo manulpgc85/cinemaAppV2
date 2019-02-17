@@ -38,8 +38,8 @@ public class MoredatesActivity extends AppCompatActivity {
 
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fabMore = (FloatingActionButton) findViewById(R.id.fabMore);
+        fabMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 validate();
